@@ -1,0 +1,7 @@
+{
+  "ext": "js,ts,json",
+  "exec": "npx tsc && node dist/server.js",
+  "ignore": [
+    "dist/*"
+  ]
+}
