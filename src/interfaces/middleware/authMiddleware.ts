@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 const authMiddleware = (req: Request, res: Response, next: NextFunction): any => {
     const token = req.headers.authorization?.split(" ")[1]; // Récupération du token Bearer
 
-    console.log(token);
     if (!token) {
         return res.status(403).json({message: "Token is required"}); // Réponse d'erreur si pas de token
     }
