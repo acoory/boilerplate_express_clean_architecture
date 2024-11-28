@@ -1,4 +1,4 @@
-import {Sequelize} from '@sequelize/core';
+import {Sequelize, DataType} from '@sequelize/core';
 import {MySqlDialect} from '@sequelize/mysql';
 import dotenv from "dotenv";
 
