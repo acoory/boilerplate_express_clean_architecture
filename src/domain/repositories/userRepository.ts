@@ -6,22 +6,26 @@ class UserRepository {
     async createUser(email: string, password: string) {
         try {
             const user = await UserModel.create({email, password});
+
+            if (!user) {
+                throw new Error('Failed to create user');
+            }
             return user;
         } catch (error) {
-            throw new Error('Failed to create user');
+            throw new Error(error.message);
         }
     }
 
     async getUserById(id: number) {
         try {
             const user = await UserModel.findOne({where: {id}});
-            console.log("user trouvé", user);
+
             if (!user) {
                 throw new Error('User not found');
             }
             return user;
-        } catch (e) {
-            throw new Error('Failed to get user');
+        } catch (error) {
+            throw new Error(error.message);
         }
     }
 
@@ -29,15 +33,12 @@ class UserRepository {
         try {
             const user = await UserModel.withScope('withPassword').findOne({where: {email}});
 
-            if (!user) {
-                throw new Error('User not found');
-            }
-
-            return user;
-        } catch (e) {
-            throw new Error('Failed to get user');
+            return user || null;
+        } catch (error: any) {
+            throw new Error(error.message);
         }
     }
+
 
 }
 
