@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 
 const router: Router = Router();
 
-router.post("/create", async (req: Request, res: Response): Promise<UserModelAttributes | void> => {
+router.post("/create", async (req: Request, res: Response) => {
     try {
         const {email, password} = req.body;
 
