@@ -11,7 +11,7 @@ class UserRepository {
                 throw new Error('Failed to create user');
             }
             return user;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(error.message);
         }
     }
@@ -24,7 +24,7 @@ class UserRepository {
                 throw new Error('User not found');
             }
             return user;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(error.message);
         }
     }

@@ -33,7 +33,7 @@ class UserService {
                 throw new Error('User not found');
             }
             return user;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(error.message);
         }
     }

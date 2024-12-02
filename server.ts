@@ -24,7 +24,6 @@ sequelize.authenticate()
         console.log("Database connected!");
         if (createDb) {
             models.createDatabase();
-            console.log("Database created!");
         }
 
         app.listen(port, () => {
