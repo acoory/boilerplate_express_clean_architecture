@@ -51,6 +51,11 @@ npm install
 
 ---
 
+## Features
+
+- **`Feature 1`**: User Authentication with JWT token
+- **`Feature 2`**: Multi configuration environment
+
 ## Project Structure
 
 ```sh
