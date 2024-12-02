@@ -6,8 +6,6 @@ import UserModel, {UserModelAttributes} from "../../domain/models/user.model";
 
 const bcrypt = require('bcrypt');
 
-const jwt = require("jsonwebtoken");
-
 const router: Router = Router();
 
 router.post("/create", async (req: Request, res: Response): Promise<UserModelAttributes | void> => {
