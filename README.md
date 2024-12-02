@@ -60,7 +60,7 @@ npm install
 
 ```sh
 ├── README.md
-├── compose.yml
+├── compose-dev.yml
 ├── dist
 │   ├── server.js
 │   └── src
