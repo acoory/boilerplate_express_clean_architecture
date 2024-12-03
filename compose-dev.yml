@@ -26,7 +26,6 @@ services:
 
   boilerplate:
     container_name: boilerplate
-
     depends_on:
       - db
     build:
