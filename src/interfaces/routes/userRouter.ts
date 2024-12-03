@@ -1,8 +1,6 @@
 import {Router, Request, Response} from 'express';
 import UserService from '../../domain/services/userService';
 import JwtService from "../../domain/services/jwtService";
-import {promises} from "node:dns";
-import UserModel, {UserModelAttributes} from "../../domain/models/user.model";
 
 const bcrypt = require('bcrypt');
 
@@ -12,9 +10,8 @@ router.post("/create", async (req: Request, res: Response) => {
     try {
         const {email, password} = req.body;
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = await UserService.createUser(email, password);
 
-        const user = await UserService.createUser(email, hashedPassword);
 
         const token = JwtService.sign(user);
 
