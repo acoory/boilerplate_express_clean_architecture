@@ -4,13 +4,18 @@ import sequelize from "./src/config/database";
 import appRouter from "./src/app";
 import middleware from "./src/interfaces/middleware/authMiddleware";
 import {models} from './src/domain/models/index';
-
+import helmet from "helmet";
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
+// Middleware de sécurité
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+//
+app.use(helmet());
 // Route de l'application
 app.use('/api/client/', appRouter);
 app.use('/api/dashboard/', middleware, appRouter);
