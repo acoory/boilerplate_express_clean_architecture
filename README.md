@@ -72,8 +72,10 @@ This will start the project with hot-reloading (nodemon) for real-time updates.
 
 ## ✨ Features
 
-- User Authentication: Secure authentication using JWT tokens
-- Multi-Environment Configuration: Easily switch between development, and production setups
+- **User Authentication**: Secure authentication using JWT tokens.
+- **Multi-Environment Configuration**: Easily switch between development and production setups.
+- **Security Enhancements**: Added **Helmet** middleware to protect against common web vulnerabilities by setting
+  appropriate HTTP headers.
 
 ---
 
