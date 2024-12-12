@@ -10,6 +10,7 @@ class UserRepository {
             if (!user) {
                 throw new Error('Failed to create user');
             }
+            
             return user;
         } catch (error: any) {
             throw new Error(error.message);

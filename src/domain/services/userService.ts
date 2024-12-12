@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 class UserService {
 
-    static async createUser(email: string, password: string): Promise<Omit<UserModelAttributes, "password">> {
+    static async createUser(email: string, password: string): Promise<Omit<any, "createdAt" | "password" | "updatedAt">> {
         if (!email || !password) {
             throw new Error('Email and password are required');
         }
@@ -24,7 +24,11 @@ class UserService {
             const hashedPassword = await bcrypt.hash(password, 10);
 
             const user = await UserRepository.createUser(email, hashedPassword);
-            return user;
+
+            return {
+                id: user.id,
+                email: user.email,
+            };
         } catch (error: any) {
             throw new Error(error.message);
         }
@@ -42,7 +46,7 @@ class UserService {
         }
     }
 
-    static async login(email: string, password: string): Promise<UserModelAttributes> {
+    static async login(email: string, password: string): Promise<Omit<any, "createdAt" | "updatedAt">> {
 
         if (!email || !password) {
             throw new Error('Email and password are required');
@@ -63,7 +67,10 @@ class UserService {
             throw new Error('Invalid password');
         }
 
-        return user;
+        return {
+            id: user.id,
+            email: user.email,
+        };
     }
 
     static verifEmail(email: string): boolean {
