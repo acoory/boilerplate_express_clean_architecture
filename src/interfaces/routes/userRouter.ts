@@ -17,7 +17,9 @@ router.post("/create", async (req: Request, res: Response) => {
 
         res.cookie('token', token, {httpOnly: true, secure: false, sameSite: 'none'});
 
-        res.status(201).json({message: "User created successfully", user: user});
+        res.status(201).json({
+            message: "User created successfully", user: user
+        });
     } catch (error: any) {
         res.status(400).json({
             message: error.message

@@ -5,8 +5,11 @@ import sequelize from '../../config/database';
 // @ts-ignore
 
 export type UserModelAttributes = {
+    id: number;
     email: string;
     password: string;
+    createdAt: Date;
+    updatedAt: Date;
 };
 
 const UserModel: any = sequelize.define(
