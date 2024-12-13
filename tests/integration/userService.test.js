@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 
 jest.mock('../../src/domain/repositories/userRepository');
 jest.mock('bcrypt', () => ({
-    hash: jest.fn().mockResolvedValue('hashedPassword'), // Simule le hachage du mot de passe
+    hash: jest.fn().mockResolvedValue('test'), // Simule le hachage du mot de passe
     compare: jest.fn().mockResolvedValue(true), // Simule la comparaison des mots de passe
 }));
 
